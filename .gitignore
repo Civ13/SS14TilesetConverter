@@ -1,0 +1,6 @@
+# Composer Dependencies
+/vendor
+composer.lock
+
+# Unit Tests
+.phpunit.result.cache

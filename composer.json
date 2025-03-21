@@ -1,0 +1,19 @@
+{
+    "name": "civ13/ss14-tileset-converter",
+    "description": "A PHP project for converting tileset images from Civ13 to the format used by SS14.",
+    "type": "library",
+    "autoload": {
+      "psr-4": {
+        "Civ14\\": "src/SS14/"
+      }
+    },
+    "require": {
+      "php": ">=7.4",
+      "ext-gd": "*"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^9.6"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+  }
