@@ -6,7 +6,7 @@
  * Copyright (c) 2025-present Valithor Obsidion <valithor@valzargaming.com>
  */
 
- namespace Civ14;
+namespace Civ14;
 
 use \RuntimeException;
 
@@ -55,5 +55,3 @@ class SS13TilesetRenamer
         );
     }
 }
-
-echo "Conversion complete: $baseFileName in $currentInputDir to $currentOutputDir" . PHP_EOL;

@@ -20,3 +20,4 @@ $renamer = new SS13TilesetRenamer(
 );
 
 $renamer->run();
+echo "Conversion complete: $baseFileName in $currentInputDir to $currentOutputDir" . PHP_EOL;
