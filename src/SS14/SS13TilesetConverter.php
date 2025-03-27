@@ -9,6 +9,7 @@
 namespace Civ14;
 
 use \GdImage;
+use \RuntimeException;
 
 class SS13TilesetConverter
 {
@@ -18,7 +19,7 @@ class SS13TilesetConverter
         protected string $outputDir,
         protected bool $verbose = false
     ) {
-        if (!extension_loaded('gd')) die("The GD extension is not enabled. Please enable it to use this script." . PHP_EOL);
+        if (!extension_loaded('gd')) throw new RuntimeException("The GD extension is not enabled. Please enable it to use this script." . PHP_EOL);
     }
 
     /**
@@ -90,16 +91,16 @@ class SS13TilesetConverter
     ): void
     {
         // Load source images
-        if (! $zerosource = imagecreatefrompng($inputPath = $inputDir . $baseFileName . '0.png')) die("Failed to load image: $inputPath");
-        if (! $sevensource = imagecreatefrompng($inputPath = $inputDir . $baseFileName . '7.png')) die("Failed to load image: $inputPath");
-        if (! $fifteensource = imagecreatefrompng($inputPath = $inputDir . $baseFileName . '15.png')) die("Failed to load image: $inputPath");
+        if (! $zerosource = imagecreatefrompng($inputPath = $inputDir . $baseFileName . '0.png')) throw new RuntimeException("Failed to load image: $inputPath");
+        if (! $sevensource = imagecreatefrompng($inputPath = $inputDir . $baseFileName . '7.png')) throw new RuntimeException("Failed to load image: $inputPath");
+        if (! $fifteensource = imagecreatefrompng($inputPath = $inputDir . $baseFileName . '15.png')) throw new RuntimeException("Failed to load image: $inputPath");
         assert($zerosource instanceof GdImage && $sevensource instanceof GdImage && $fifteensource instanceof GdImage);
 
         // Get original dimensions
         $width = imagesx($zerosource);
         $height = imagesy($zerosource);
         // Ensure dimensions are divisible by 4
-        if ($width % 4 !== 0 || $height % 4 !== 0) die("Image dimensions must be divisible by 4.");
+        if ($width % 4 !== 0 || $height % 4 !== 0) throw new RuntimeException("Image dimensions must be divisible by 4.");
         // Calculate quadrant size (16x16 for a 32x32 image)
         $quadSize = (int)($width / 2);
         // Final output size (scaled up)
