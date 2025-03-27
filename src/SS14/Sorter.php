@@ -113,7 +113,7 @@ class Sorter {
                 $sourcePath = $directory . DIRECTORY_SEPARATOR . $file;
                 $destinationPath = $subfolderPath . DIRECTORY_SEPARATOR . $file;
                 rename($sourcePath, $destinationPath);
-                echo "Moved '$file' to '$pairName' folder." . PHP_EOL;
+                //echo "Moved '$file' to '$pairName' folder." . PHP_EOL;
             }
         }
     }
