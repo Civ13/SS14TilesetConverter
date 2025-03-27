@@ -11,5 +11,6 @@ if (! $autoloader = require file_exists(__DIR__.'/vendor/autoload.php') ? __DIR_
 
 // Example usage with command line argument
 if (! isset($argv[1]) || ! $directory = $argv[1]) die("Usage: php sorter.php <directory_to_sort>");
-Sorter::sortFilesIntoPairs($directory);
+$sorter = new Sorter($directory);
+$sorter->run();
 echo "Finished sorting files in $directory." . PHP_EOL;
