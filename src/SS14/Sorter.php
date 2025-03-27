@@ -39,9 +39,7 @@ namespace Civ14;
 class Sorter {
     private array $filePairs = [];
     private array $processedFiles = [];
-    public function __construct(
-        private string $directory
-    ){
+    public function __construct(private string $directory){
         if (!is_dir($this->directory)) {
             throw new \RuntimeException("'$this->directory' is not a valid directory.");
         }
